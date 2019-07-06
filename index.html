@@ -17,6 +17,7 @@
     <p id="computerchoice-word"></p>
     <p id="hidden-tag"></p>
     <p id="win-tag"></p>
+    <p id="lose-tag"></p>
     <p id="remaining-tag"></p>
     <p id="wrong-tag"></p>
   </div>
@@ -25,6 +26,7 @@
     var computerChoiceWord = document.getElementById("computerchoice-word");
     var hiddenWord = document.getElementById("hidden-tag");
     var userWin = document.getElementById("win-tag");
+    var userLose = document.getElementById("lose-tag");
     var remainingTries = document.getElementById("remaining-tag");
     var wrong = document.getElementById("wrong-tag");
 
@@ -33,6 +35,7 @@
     var wrongGuesses = [];
     
     var win = 0;
+    var lose = 0;
     var maxTries = 15;
 
     var temp = "";
@@ -43,9 +46,28 @@
 
     document.onkeyup = function(event) {
         var userGuess = event.key;
-        
+        // if there is no "-" in current word (which means if the guessing game is done)
+        if(!temp.includes("-")) {
+            wrongGuesses = [];
+            maxTries = 15;
+            win++;
+            chosenWord = wordArray[Math.floor(Math.random() * wordArray.length)];
+            temp = "";
+            for(var i = 0; i < chosenWord.length; i++) {
+                temp += "-";
+            }            
+        // if there is no more tries left for users    
+        } else if (maxTries == 0) {
+            wrongGuesses = [];
+            maxTries = 15;
+            lose++;
+            chosenWord = wordArray[Math.floor(Math.random() * wordArray.length)];
+            temp = "";
+            for(var i = 0; i < chosenWord.length; i++) {
+                temp += "-";
+            }
         // if the letter is in the chosen word
-        if(chosenWord.includes(userGuess)) {
+        } else if(chosenWord.includes(userGuess)) {     
             var temp2 = "";
             // travel through the entire word, 
             // reveals the letter
@@ -71,6 +93,7 @@
         computerChoiceWord.textContent = "The Computer chose: " + chosenWord;
         hiddenWord.textContent = "Current Word: " + temp;
         userWin.textContent = "Win: " + win;
+        userLose.textContent = "Lose: " + lose;
         remainingTries.textContent = "Number of Guesses Remaining: " + maxTries;
         wrong.textContent = "Letters Already Guessed: " + wrongGuesses;
 
