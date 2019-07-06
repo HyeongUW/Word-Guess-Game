@@ -309,3 +309,78 @@ var wordArray = ["have", "that", "with", "this", "they", "from", "that", "what",
 "flying", "sustainable", "devil", "bolt", "cargo", "spine", "seller", "skilled", "managing", "public", "marine", "dock", "organized", "diplomat", "boring", 
 "sometime", "summary", "missionary", "epidemic", "fatal", "trim", "warehouse", "accelerate", "butterfly", "bronze", "drown", "inherent", "praise", "nationwide", "spit", 
 "harvest", "kneel", "vacuum", "selected", "dictate", "stereotype", "sensor", "laundry", "manual", "pistol", "naval", "plaintiff", "class", "apology"];
+
+var computerChoiceWord = document.getElementById("computerchoice-word");
+var hiddenWord = document.getElementById("hidden-tag");
+var userWin = document.getElementById("win-tag");
+var userLose = document.getElementById("lose-tag");
+var remainingTries = document.getElementById("remaining-tag");
+var wrong = document.getElementById("wrong-tag");
+
+var chosenWord = wordArray[Math.floor(Math.random() * wordArray.length)];
+
+var wrongGuesses = [];
+
+var win = 0;
+var lose = 0;
+var maxTries = 15;
+
+var temp = "";
+for(var i = 0; i < chosenWord.length; i++) {
+    temp += "-";
+}
+
+document.onkeyup = function(event) {
+    var userGuess = event.key;
+    
+    // if there is no "-" in current word (which means if the guessing game is done)
+    if(!temp.includes("-")) {
+        wrongGuesses = [];
+        maxTries = 15;
+        win++;
+        chosenWord = wordArray[Math.floor(Math.random() * wordArray.length)];
+        temp = "";
+        for(var i = 0; i < chosenWord.length; i++) {
+            temp += "-";
+        }            
+    // if there is no more tries left for users    
+    } else if (maxTries == 0) {
+        wrongGuesses = [];
+        maxTries = 15;
+        lose++;
+        chosenWord = wordArray[Math.floor(Math.random() * wordArray.length)];
+        temp = "";
+        for(var i = 0; i < chosenWord.length; i++) {
+            temp += "-";
+        }
+    // if the letter is in the chosen word
+    } else if(chosenWord.includes(userGuess)) {     
+        var temp2 = "";
+        // travel through the entire word, 
+        // reveals the letter
+        for(var i = 0; i < temp.length; i++) {
+            if (temp.charAt(i) != "-") {
+                temp2 += temp.charAt(i);
+            } else if(chosenWord.charAt(i) == userGuess) {
+                temp2 += userGuess;
+            } else {
+                temp2 += "-";
+            }
+        }
+        temp = temp2;
+        wrongGuesses.push(userGuess);
+        maxTries--;
+    // if it is not in the chosen word     
+    } else {
+        wrongGuesses.push(userGuess);
+        maxTries--;
+    }
+
+    console.log("The Computer chose: " + chosenWord);
+    hiddenWord.textContent = "Current Word: " + temp;
+    userWin.textContent = "Win: " + win;
+    userLose.textContent = "Lose: " + lose;
+    remainingTries.textContent = "Number of Guesses Remaining: " + maxTries;
+    wrong.textContent = "Letters Already Guessed: " + wrongGuesses;
+
+};
