@@ -1,4 +1,4 @@
-var wordArray = ["have", "that", "with", "this", "they", "from", "that", "what", "their", "would", "make", "about", "know", "will", "time", 
+["have", "that", "with", "this", "they", "from", "that", "what", "their", "would", "make", "about", "know", "will", "time", 
 "there", "year", "think", "when", "which", "them", "some", "people", "take", "into", "just", "your", "come", "could", "than", 
 "like", "other", "then", "more", "these", "want", "look", "first", "also", "because", "more", "find", "here", "thing", "give", 
 "many", "well", "only", "those", "tell", "very", "even", "back", "good", "woman", "through", "life", "child", "there", "work", 
@@ -308,4 +308,4 @@ var wordArray = ["have", "that", "with", "this", "they", "from", "that", "what",
 "honestly", "troubled", "twentieth", "balanced", "foreigner", "launch", "convenience", "delight", "weave", "timber", "till", "accurately", "plea", "bulb", "copy", 
 "flying", "sustainable", "devil", "bolt", "cargo", "spine", "seller", "skilled", "managing", "public", "marine", "dock", "organized", "diplomat", "boring", 
 "sometime", "summary", "missionary", "epidemic", "fatal", "trim", "warehouse", "accelerate", "butterfly", "bronze", "drown", "inherent", "praise", "nationwide", "spit", 
-"harvest", "kneel", "vacuum", "selected", "dictate", "stereotype", "sensor", "laundry", "manual", "pistol", "naval", "plaintiff", "class", "apology"];
+"harvest", "kneel", "vacuum", "selected", "dictate", "stereotype", "sensor", "laundry", "manual", "pistol", "naval", "plaintiff", "class", "apology"]

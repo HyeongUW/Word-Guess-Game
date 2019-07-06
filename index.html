@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>The Word Guess Game</title>
+  <script src="assets/javascript/game.js"></script>
+
+</head>
+
+<body>
+
+  <h1>The Word Guess Game</h1>
+  <p>Press any key to get started!</p>
+  
+  <div id="game">
+    <p id="computerchoice-word"></p>
+    <p id="hidden-tag"></p>
+    <p id="win-tag"></p>
+    <p id="remaining-tag"></p>
+    <p id="wrong-tag"></p>
+  </div>
+
+  <script type="text/javascript">
+    var computerChoiceWord = document.getElementById("computerchoice-word");
+    var hiddenWord = document.getElementById("hidden-tag");
+    var userWin = document.getElementById("win-tag");
+    var remainingTries = document.getElementById("remaining-tag");
+    var wrong = document.getElementById("wrong-tag");
+
+    var chosenWord = wordArray[Math.floor(Math.random() * wordArray.length)];
+    
+    var wrongGuesses = [];
+    
+    var win = 0;
+    var maxTries = 15;
+
+    var temp = "";
+    for(var i = 0; i < chosenWord.length; i++) {
+        temp += "-";
+    }
+    
+
+    document.onkeyup = function(event) {
+        var userGuess = event.key;
+        
+        // if the letter is in the chosen word
+        if(chosenWord.includes(userGuess)) {
+            var temp2 = "";
+            // travel through the entire word, 
+            // reveals the letter
+            for(var i = 0; i < temp.length; i++) {
+                if (temp.charAt(i) != "-") {
+                    temp2 += temp.charAt(i);
+                } else if(chosenWord.charAt(i) == userGuess) {
+                    temp2 += userGuess;
+                } else {
+                    temp2 += "-";
+                }
+            }
+            temp = temp2;
+            wrongGuesses.push(userGuess);
+            maxTries--;
+        // if it is not in the chosen word     
+        } else {
+            wrongGuesses.push(userGuess);
+            maxTries--;
+        }
+
+        
+        computerChoiceWord.textContent = "The Computer chose: " + chosenWord;
+        hiddenWord.textContent = "Current Word: " + temp;
+        userWin.textContent = "Win: " + win;
+        remainingTries.textContent = "Number of Guesses Remaining: " + maxTries;
+        wrong.textContent = "Letters Already Guessed: " + wrongGuesses;
+
+    };
+  </script>
+
+</body>
+
+</html>
