@@ -12,6 +12,7 @@
 
   <h1>The Word Guess Game</h1>
   <p>Press any key to get started!</p>
+  <p>Check The Console If You Want To Check The Answer!</p>
   
   <div id="game">
     <p id="computerchoice-word"></p>
@@ -46,6 +47,7 @@
 
     document.onkeyup = function(event) {
         var userGuess = event.key;
+        
         // if there is no "-" in current word (which means if the guessing game is done)
         if(!temp.includes("-")) {
             wrongGuesses = [];
@@ -89,8 +91,7 @@
             maxTries--;
         }
 
-        
-        computerChoiceWord.textContent = "The Computer chose: " + chosenWord;
+        console.log("The Computer chose: " + chosenWord);
         hiddenWord.textContent = "Current Word: " + temp;
         userWin.textContent = "Win: " + win;
         userLose.textContent = "Lose: " + lose;
