@@ -1,0 +1,35 @@
+body {
+    /* background: black;
+    margin: 40px auto;
+    width: 200px;
+    text-align: center; */
+  }
+  
+  @-webkit-keyframes hue {
+    from {
+      -webkit-filter: hue-rotate(0deg);
+    }
+    
+    to {
+      -webkit-filter: hue-rotate(360deg);
+    }
+  }
+  .discoball {
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: hue;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    
+    background: lightgrey;
+    border-radius: 200px;
+    /*border: 0px solid #fff;*/
+    height: 200px;
+    width: 200px;
+    box-shadow: 0 3px 200px -3px #fff;
+  }
+  .discoball img {
+    height: 200px;
+    width: 200px;
+  }
+  

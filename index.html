@@ -4,26 +4,51 @@
 <head>
   <meta charset="UTF-8">
   <title>The Word Guess Game</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="assets/other-resources/discoBall.css">
+
+
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  
+  
  
 
 </head>
 
 <body>
+    <div class="row">
+      <!-- At large+ screens takes up half width (6/12) -->
+      <div class="col-10">
+          <h1>The Word Guess Game</h1>
+          <p>Press any key to get started!</p>
+          <p>Check The Console If You Want To Check The Answer!</p>
+          
+          <div id="game">
+            <p id="computerchoice-word"></p>
+            <p id="hidden-tag"></p>
+            <p id="win-tag"></p>
+            <p id="lose-tag"></p>
+            <p id="remaining-tag"></p>
+            <p id="wrong-tag"></p>
+          </div>        
+        
+      </div>
 
-  <h1>The Word Guess Game</h1>
-  <p>Press any key to get started!</p>
-  <p>Check The Console If You Want To Check The Answer!</p>
-  
-  <div id="game">
-    <p id="computerchoice-word"></p>
-    <p id="hidden-tag"></p>
-    <p id="win-tag"></p>
-    <p id="lose-tag"></p>
-    <p id="remaining-tag"></p>
-    <p id="wrong-tag"></p>
-  </div>
+      <div class="col-2">
+          <div class="discoball">
+              <img src="https://drive.google.com/uc?id=0B7QrEBMF4GTGQ3lfRzV0cU5rNHM" alt="">
+            </div>        
+      </div>
+    </div>  
 
   <script src="./assets/javascript/game.js"></script>
+
+
+
+  
+  
+
 
 </body>
 
